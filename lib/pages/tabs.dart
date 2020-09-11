@@ -28,14 +28,17 @@ class _tabsState extends State<tabs> {
   }
 
   Widget getBody() {
-    return TabBarView(
-      children: [
-        HomePage(),
-        PersonPage(),
-        PersonPage(),
-        PersonPage(),
-        PersonPage(),
-      ],
+    return Container(
+      decoration: BoxDecoration(color: black),
+      child: TabBarView(
+        children: [
+          HomePage(),
+          PersonPage(),
+          PersonPage(),
+          PersonPage(),
+          PersonPage(),
+        ],
+      ),
     );
   }
 

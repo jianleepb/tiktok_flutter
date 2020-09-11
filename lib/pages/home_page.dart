@@ -27,10 +27,18 @@ class _HomePageState extends State<HomePage> {
   Widget getBody() {
     var _size = MediaQuery.of(context).size;
     return Container(
-      color: black,
-      width: double.infinity,
+      // color: black,
+      width: _size.width,
       child: Stack(
         children: [
+          Image.network('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599853157332&di=99bc8d86fda3cce53196b187bcc8b402&imgtype=0&src=http%3A%2F%2Fstatic01.coloros.com%2Fbbs%2Fdata%2Fattachment%2Fforum%2F201706%2F28%2F202725sjsejjbh1dyzr9jl.jpg',fit: BoxFit.cover,),
+          TabBarView(
+            children: [
+              PersonPage(),
+              PersonPage(),
+              RecommendPage(),
+            ],
+          ),
           Positioned(
             top: 10,
             child: Container(
@@ -74,13 +82,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          TabBarView(
-            children: [
-              PersonPage(),
-              PersonPage(),
-              RecommendPage(),
-            ],
-          )
+
         ],
       ),
     );
