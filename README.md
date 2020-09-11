@@ -1,6 +1,7 @@
 # TikTok App 
 
-![TikTok App UI](https://user-images.githubusercontent.com/16510597/88754800-d5728b80-d189-11ea-862d-be294c22da84.jpg)
+![TikTok App UI](https://github.com/jianleepb/tiktok_flutter/blob/master/assets/images/tiktok_ui.png)
+
 
 ## Note:
  This project could run only in a real device since the video player does not support a simulator or either emulator.
