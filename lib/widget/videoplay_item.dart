@@ -6,6 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoPlayerItem extends StatefulWidget {
+  final String videoUrl;
+
+  const VideoPlayerItem({Key key, this.videoUrl}) : super(key: key);
   @override
   _VideoPlayerItemState createState() => _VideoPlayerItemState();
 }
@@ -27,7 +30,7 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
     // TODO: implement initState
     super.initState();
 
-    _videoController = VideoPlayerController.asset('assets/videos/video_1.mp4')
+    _videoController = VideoPlayerController.asset(widget.videoUrl)
       ..initialize().then((value) {
         _videoController.play();
         setState(() {

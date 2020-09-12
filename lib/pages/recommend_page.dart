@@ -3,6 +3,7 @@
  * @github: https://github.com/jianleepb
  */
 import 'package:flutter/material.dart';
+import 'package:tiktok_flutter_app/data/data_json.dart';
 import 'package:tiktok_flutter_app/res/colors.dart';
 import 'package:tiktok_flutter_app/widget/music_icon.dart';
 import 'package:tiktok_flutter_app/widget/videoplay_item.dart';
@@ -12,22 +13,38 @@ class RecommendPage extends StatefulWidget {
   _RecommendPageState createState() => _RecommendPageState();
 }
 
-class _RecommendPageState extends State<RecommendPage> {
+class VideoItems extends StatefulWidget {
+  final String videoUrl;
+
+  const VideoItems({Key key, this.videoUrl}) : super(key: key);
+
+  @override
+  _VideoItemsState createState() => _VideoItemsState();
+}
+
+class _VideoItemsState extends State<VideoItems> {
   @override
   Widget build(BuildContext context) {
     var _size = MediaQuery.of(context).size;
     return Container(
       height: double.infinity,
       width: double.infinity,
-      child: Stack(
-        children: [
-          Container(
-            decoration: BoxDecoration(color: black),
-            child: VideoPlayerItem(),
+      child: RotatedBox(
+        quarterTurns: -1,
+        child: Container(
+          height: double.infinity,
+          width: double.infinity,
+          child: Stack(
+            children: [
+              Container(
+                decoration: BoxDecoration(color: black),
+                child: VideoPlayerItem(videoUrl: widget.videoUrl,),
+              ),
+              Positioned(bottom: 0, left: 0, child: leftPale(_size)),
+              Positioned(bottom: 0, right: 0, child: rightPale(_size))
+            ],
           ),
-          Positioned(bottom: 0, left: 0, child: leftPale(_size)),
-          Positioned(bottom: 0, right: 0, child: rightPale(_size))
-        ],
+        ),
       ),
     );
   }
@@ -53,6 +70,32 @@ class _RecommendPageState extends State<RecommendPage> {
             MusicIcon()
           ],
         ),
+      ),
+    );
+  }
+
+  var icons = [Icons.favorite, Icons.comment, Icons.reply];
+
+  //点赞、消息、分享
+  Widget _getIcons(int index, String num) {
+    return Container(
+      child: Column(
+        children: [
+          SizedBox(
+            height: 7,
+          ),
+          Icon(icons[index], color: white, size: 30.0),
+          SizedBox(
+            height: 2,
+          ),
+          Text(
+            num,
+            style: TextStyle(color: Colors.white, fontSize: 12),
+          ),
+          SizedBox(
+            height: 7,
+          )
+        ],
       ),
     );
   }
@@ -105,32 +148,6 @@ class _RecommendPageState extends State<RecommendPage> {
     );
   }
 
-  var icons = [Icons.favorite, Icons.comment, Icons.reply];
-
-  //点赞、消息、分享
-  Widget _getIcons(int index, String num) {
-    return Container(
-      child: Column(
-        children: [
-          SizedBox(
-            height: 7,
-          ),
-          Icon(icons[index], color: white, size: 30.0),
-          SizedBox(
-            height: 2,
-          ),
-          Text(
-            num,
-            style: TextStyle(color: Colors.white, fontSize: 12),
-          ),
-          SizedBox(
-            height: 7,
-          )
-        ],
-      ),
-    );
-  }
-
   //关注头像
   Widget _attentionIcon(img) {
     return Container(
@@ -163,6 +180,42 @@ class _RecommendPageState extends State<RecommendPage> {
                 )),
               ))
         ],
+      ),
+    );
+  }
+}
+
+class _RecommendPageState extends State<RecommendPage>
+    with SingleTickerProviderStateMixin {
+  TabController _tabController;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _tabController = TabController(length: items.length, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _tabController.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      child: RotatedBox(
+        quarterTurns: 1,
+        child: TabBarView(
+          controller: _tabController,
+          children: List.generate(items.length, (index) {
+            return VideoItems(videoUrl: items[index]['videoUrl'],);
+          }),
+        ),
       ),
     );
   }
