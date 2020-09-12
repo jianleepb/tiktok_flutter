@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok_flutter_app/res/colors.dart';
 import 'package:tiktok_flutter_app/widget/music_icon.dart';
+import 'package:tiktok_flutter_app/widget/videoplay_item.dart';
 
 class RecommendPage extends StatefulWidget {
   @override
@@ -13,12 +14,6 @@ class RecommendPage extends StatefulWidget {
 
 class _RecommendPageState extends State<RecommendPage> {
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     var _size = MediaQuery.of(context).size;
     return Container(
@@ -26,6 +21,10 @@ class _RecommendPageState extends State<RecommendPage> {
       width: double.infinity,
       child: Stack(
         children: [
+          Container(
+            decoration: BoxDecoration(color: black),
+            child: VideoPlayerItem(),
+          ),
           Positioned(bottom: 0, left: 0, child: leftPale(_size)),
           Positioned(bottom: 0, right: 0, child: rightPale(_size))
         ],
@@ -57,8 +56,6 @@ class _RecommendPageState extends State<RecommendPage> {
       ),
     );
   }
-
-
 
   Widget leftPale(_size) {
     return Container(

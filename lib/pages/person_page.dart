@@ -17,7 +17,7 @@ class _PersonPageState extends State<PersonPage> {
       height: double.infinity,
       width: double.infinity,
       child: Center(
-        child:Text('There once about a boy: ',style: TextStyle(color: Colors.white,fontWeight:FontWeight.bold),)
+        child:Text('Hello TikTok',style: TextStyle(color: Colors.white,fontWeight:FontWeight.bold),)
       ),
     );
   }

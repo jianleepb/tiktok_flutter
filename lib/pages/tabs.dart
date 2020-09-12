@@ -52,7 +52,7 @@ class _tabsState extends State<tabs> {
           )
         ),
         child: Padding(
-          padding: EdgeInsets.only(top: 10, bottom: 6),
+          padding: EdgeInsets.only(top: 6, bottom: 8),
           child: Row(
             children: [
               Expanded(

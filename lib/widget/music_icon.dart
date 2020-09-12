@@ -59,7 +59,7 @@ class _MusicIconState extends State<MusicIcon>
                   height: 38,
                   width: 38,
                   decoration: BoxDecoration(
-                      shape: BoxShape.circle, color: Colors.blueGrey),
+                      shape: BoxShape.circle, color: Colors.black54),
                 ),
                 Positioned(
                   top: 8,
