@@ -5,6 +5,10 @@
 import 'package:flutter/material.dart';
 
 class MusicIcon extends StatefulWidget {
+  final String albumImg;
+
+  MusicIcon(this.albumImg);
+
   @override
   _MusicIconState createState() => _MusicIconState();
 }
@@ -47,8 +51,8 @@ class _MusicIconState extends State<MusicIcon>
 
   Widget _musicIcon() {
     return Container(
-        height: 50,
-        width: 50,
+        height: 38,
+        width: 38,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.end,
@@ -74,7 +78,7 @@ class _MusicIconState extends State<MusicIcon>
                         color: Colors.amber,
                         image: DecorationImage(
                             image: NetworkImage(
-                                'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599876529846&di=aba058fab513b64c601b234e0e5bdea6&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201603%2F06%2F20160306204517_i4Se8.jpeg'))),
+                                widget.albumImg))),
                   ),
                 ),
               ],

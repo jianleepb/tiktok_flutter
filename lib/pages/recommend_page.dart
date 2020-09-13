@@ -15,8 +15,27 @@ class RecommendPage extends StatefulWidget {
 
 class VideoItems extends StatefulWidget {
   final String videoUrl;
+  final String name;
+  final String caption;
+  final String songName;
+  final String profileImg;
+  final String likes;
+  final String comments;
+  final String shares;
+  final String albumImg;
 
-  const VideoItems({Key key, this.videoUrl}) : super(key: key);
+  const VideoItems(
+      {Key key,
+      this.videoUrl,
+      this.name,
+      this.caption,
+      this.songName,
+      this.profileImg,
+      this.likes,
+      this.comments,
+      this.shares,
+      this.albumImg})
+      : super(key: key);
 
   @override
   _VideoItemsState createState() => _VideoItemsState();
@@ -38,7 +57,9 @@ class _VideoItemsState extends State<VideoItems> {
             children: [
               Container(
                 decoration: BoxDecoration(color: black),
-                child: VideoPlayerItem(videoUrl: widget.videoUrl,),
+                child: VideoPlayerItem(
+                  videoUrl: widget.videoUrl,
+                ),
               ),
               Positioned(bottom: 0, left: 0, child: leftPale(_size)),
               Positioned(bottom: 0, right: 0, child: rightPale(_size))
@@ -53,21 +74,24 @@ class _VideoItemsState extends State<VideoItems> {
     return Container(
       width: _size.width * 0.2,
       height: _size.height * 0.5,
-      padding: EdgeInsets.only(bottom: 10),
+      padding: EdgeInsets.only(left:10,bottom: 10),
       child: Expanded(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            _attentionIcon(
-                'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3196884682,1526664447&fm=26&gp=0.jpg'),
-            _getIcons(0, '4544'),
-            _getIcons(1, '2042'),
-            _getIcons(2, '665'),
+            _attentionIcon(widget.profileImg),
+            _getIcons(0, widget.likes),
+            _getIcons(1, widget.comments),
+            _getIcons(2, widget.shares),
             SizedBox(
               height: 10,
             ),
-            MusicIcon()
+            SizedBox(
+              height: 38,
+              width: 38,
+              child: MusicIcon(widget.albumImg),
+            )
           ],
         ),
       ),
@@ -110,14 +134,14 @@ class _VideoItemsState extends State<VideoItems> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Text(
-            '@世间满樱花',
+            '@${widget.name}',
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
           SizedBox(
             height: 8,
           ),
           Text(
-            '沉寂了一夏，终于迎来了秋风，内心极度渴望的东西，才有机会去触及。#马拉松 #跑步 #自律 @抖音小助手',
+            widget.caption,
             style: TextStyle(color: Colors.white),
           ),
           SizedBox(
@@ -136,7 +160,7 @@ class _VideoItemsState extends State<VideoItems> {
               Expanded(
                 flex: 1,
                 child: Text(
-                  'Tales of the Electric Romeo @世间满樱花的创作',
+                  widget.songName,
                   maxLines: 1,
                   style: TextStyle(color: Colors.white),
                 ),
@@ -151,13 +175,13 @@ class _VideoItemsState extends State<VideoItems> {
   //关注头像
   Widget _attentionIcon(img) {
     return Container(
-      width: 46,
-      height: 56,
+      width: 50,
+      height: 50,
       child: Stack(
         children: <Widget>[
           Container(
             width: 46,
-            height: 50,
+            height: 46,
             decoration: BoxDecoration(
                 border: Border.all(color: white),
                 shape: BoxShape.circle,
@@ -165,11 +189,11 @@ class _VideoItemsState extends State<VideoItems> {
                     image: NetworkImage(img), fit: BoxFit.cover)),
           ),
           Positioned(
-              bottom: 3,
-              left: 16,
+              bottom: 0,
+              left: 17,
               child: Container(
-                width: 18,
-                height: 18,
+                width: 16,
+                height: 16,
                 decoration:
                     BoxDecoration(shape: BoxShape.circle, color: primary),
                 child: Center(
@@ -213,7 +237,17 @@ class _RecommendPageState extends State<RecommendPage>
         child: TabBarView(
           controller: _tabController,
           children: List.generate(items.length, (index) {
-            return VideoItems(videoUrl: items[index]['videoUrl'],);
+            return VideoItems(
+              videoUrl: items[index]['videoUrl'],
+              name: items[index]['name'],
+              caption: items[index]['caption'],
+              songName: items[index]['songName'],
+              profileImg: items[index]['profileImg'],
+              likes: items[index]['likes'],
+              comments: items[index]['comments'],
+              shares: items[index]['shares'],
+              albumImg: items[index]['albumImg'],
+            );
           }),
         ),
       ),
