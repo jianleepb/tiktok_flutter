@@ -14,7 +14,7 @@ class _AddIconState extends State<AddIcon> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 50,
+      width: double.infinity,
       height: 25,
       child: Stack(
         children: <Widget>[
