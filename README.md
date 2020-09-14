@@ -5,9 +5,9 @@
 
 # 项目截图
 <div style="float:right">
-  <img src="https://github.com/fmtjava/flutter_eyepetizer/blob/master/images/1911576051895_.pic.jpg" width="270"/>&nbsp;&nbsp;&nbsp;
-  <img src="https://github.com/fmtjava/flutter_eyepetizer/blob/master/images/2061576568586_.pic.jpg" width="270"/>&nbsp;&nbsp;&nbsp;
-  <img src="https://github.com/fmtjava/flutter_eyepetizer/blob/master/images/2051576568585_.pic.jpg" width="270"/>
+  <img src="https://github.com/jianleepb/tiktok_flutter/blob/master/assets/images/1600063982_pic.png" width="270"/>&nbsp;&nbsp;&nbsp;
+  <img src="https://github.com/jianleepb/tiktok_flutter/blob/master/assets/images/1600063994_pic.png" width="270"/>&nbsp;&nbsp;&nbsp;
+  <img src="https://github.com/jianleepb/tiktok_flutter/blob/master/assets/images/1600063999_pic.png" width="270"/>
 </div>
 
 <br/>
@@ -26,7 +26,7 @@
   - [Get](https://github.com/jonataslaw/get) 路由框架
 
  # 关于我
-  - WX：jianleepb
+  - WX：JIANLI_121
   - QQ：304359108
   - Email：jianleepb@126.com
   - Github：https://github.com/jianleepb
