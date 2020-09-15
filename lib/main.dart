@@ -1,7 +1,17 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:tiktok_flutter_app/pages/tabs.dart';
 
-void main() => runApp(RootApp());
+void main(){
+  runApp(RootApp());
+  //Flutter沉浸式状态栏
+  if (Platform.isAndroid) {
+    SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+  }
+}
 
 class RootApp extends StatefulWidget {
   @override
