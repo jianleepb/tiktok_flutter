@@ -21,9 +21,7 @@
   - [fluttertoast](https://github.com/PonnamKarthik/FlutterToast) 吐司提示框架
   - [flutter_screenutil](https://github.com/OpenFlutter/flutter_screenutil) 屏幕适配
   - [flutter_swiper](https://github.com/best-flutter/flutter_swiper) 轮播图框架
-  - [flutter_splash_screen](https://github.com/crazycodeboy/flutter_splash_screen) 启动白屏处理框架
   - [provider](https://github.com/rrousselGit/provider) 状态框架
-  - [Get](https://github.com/jonataslaw/get) 路由框架
 
  # 关于我
   - WX：JIANLI_121
